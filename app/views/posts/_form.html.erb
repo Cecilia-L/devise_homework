@@ -1,0 +1,27 @@
+<%= form_for(post) do |f| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :제목 %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :내용 %>
+    <%= f.text_area :content , class: "form-control",cols: "30", rows: "10" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :등록 %>
+  </div>
+<% end %>
